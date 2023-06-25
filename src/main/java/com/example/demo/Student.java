@@ -1,11 +1,17 @@
 package com.example.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Entity(name = "Student")
+@Table(
+    name = "student",
+    uniqueConstraints = {
+        @UniqueConstraint(
+            name = "student_email_unique",
+            columnNames = "email"
+        )
+    }
+)
 public class Student {
 
     @Id
@@ -18,10 +24,33 @@ public class Student {
             strategy = javax.persistence.GenerationType.SEQUENCE,
             generator = "student_sequence"
     )
+    @Column(
+            name = "id",
+            updatable = false // cannot be updated
+    )
     private Long id;
+    @Column(
+            name = "first_name",
+            nullable = false, // cannot be null
+            columnDefinition = "TEXT" // set column type to TEXT
+    )
     private String firstName;
+    @Column(
+            name = "last_name",
+            nullable = false, // cannot be null
+            columnDefinition = "TEXT" // set column type to TEXT
+    )
     private String lastName;
+    @Column(
+            name = "email",
+            nullable = false, // cannot be null
+            columnDefinition = "TEXT" // set column type to TEXT
+    )
     private String email;
+    @Column(
+            name = "age",
+            nullable = false // cannot be null
+    )
     private Integer age;
 
     public Student(Long id,
@@ -34,6 +63,10 @@ public class Student {
         this.lastName = lastName;
         this.email = email;
         this.age = age;
+    }
+
+    public Student() {
+
     }
 
     public Long getId() {
