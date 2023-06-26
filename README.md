@@ -1,3 +1,9 @@
+# What I did
+
+This project was made to learn the basics of Spring Data JPA. Created an application which creates a table in a PostgreSQL database hosted in docker accessed by a local port. I also added an entry to the table through JpaRepository
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # spring-data-jpa-course
 
 ![2](https://user-images.githubusercontent.com/40702606/103156831-dfce9b00-47a4-11eb-9551-af8ffee11bd0.png)
